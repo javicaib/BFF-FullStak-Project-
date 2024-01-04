@@ -19,14 +19,15 @@ Content-Type:  application/json
 
 ### LOGIN ###
 POST http://localhost:3000/api/v1/auth/login
+Accept-Language: En
 Content-Type:  application/json
 
 {
 
-  "password": 123,
+  "password": "",
 
-  "email": "buzz@uci.cu"
+  "email": ""
 }
 ### Translation Test
 GET http://localhost:3000/greeting
-Accept-Language: es
+Accept-Language: Es

@@ -6,7 +6,7 @@ export const Login = async (req: Request, res: Response) => {
   const { password, email } = req.body;
 
   if (!email || !password) {
-    return res.status(400).json({ msg: "Email y Password son requeridos" });
+    return res.status(400).json({ msg: req.t("email-password-required") });
   }
   const user = await User.findOne({ email });
 

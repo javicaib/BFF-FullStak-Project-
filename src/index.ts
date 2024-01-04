@@ -1,6 +1,6 @@
 import cors from "cors";
 import dontevn from "dotenv";
-import express from "express";
+import express, { Request } from "express";
 import i18next from "i18next";
 import i18nextFsBackend from "i18next-fs-backend";
 import i18nextMiddleware from "i18next-http-middleware";
@@ -37,6 +37,11 @@ dbConnect();
 // Rutas
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", AuthRouter);
+app.get("/greeting", (req:Request, res) => {
+  const response = req.t("email-password-required");
+  res.status(200);
+  res.send(response);
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

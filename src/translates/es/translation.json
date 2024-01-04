@@ -1,3 +1,4 @@
 {
-  "greeting": "aasd!"
+  "email-password-required": "Correo electrónico y Contraseña son campos requeridos",
+  "greeting": "hola"
 }
