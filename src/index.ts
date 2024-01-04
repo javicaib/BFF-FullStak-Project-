@@ -8,6 +8,8 @@ import { dbConnect } from "./db/config";
 import AuthRouter from "./routes/auth.routes";
 import userRouter from "./routes/user.routes";
 
+const app = express();
+
 i18next
   .use(i18nextFsBackend)
   .use(i18nextMiddleware.LanguageDetector)
@@ -18,9 +20,6 @@ i18next
     fallbackLng: "es",
     preload: ["es", "en"],
   });
-
-const app = express();
-
 // Variables de Entorno
 dontevn.config();
 const PORT = process.env.PORT || 3000;
