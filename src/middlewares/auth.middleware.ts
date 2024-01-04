@@ -1,10 +1,11 @@
 import { NextFunction, Request, Response } from "express";
+import type { t } from "i18next";
 import jwt from "jsonwebtoken";
 import { getSecretWord } from "../helpers/token";
 
 export interface CustomRequest extends Request {
-  decoded?: any; // Tipo de la información decodificada
-  t: any;
+  decoded?: any; 
+  t: typeof t;
 }
 
 const check_auth = (req: CustomRequest, res: Response, next: NextFunction) => {
