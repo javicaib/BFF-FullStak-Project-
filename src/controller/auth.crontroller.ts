@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { compare } from "../helpers/encodePassword";
 import { generateJWT } from "../helpers/token";
 import User from "../models/user.model";
+
 export const Login = async (req: Request, res: Response) => {
   const { password, email } = req.body;
 
@@ -11,9 +12,7 @@ export const Login = async (req: Request, res: Response) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    return res
-      .status(404)
-      .json({ msg: "Correo Electrónico  o Contraseña incorrectas" });
+    return res.status(404).json({ msg: req.t("email-password-required") });
   }
 
   const comparePasswords = await compare(String(password), user.password);
