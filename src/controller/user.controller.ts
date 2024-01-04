@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { hashedPassword } from "../helpers/encodePassword";
-import { CustomRequest } from "../middlewares/auth.middleware";
 import User from "../models/user.model";
 
 export const CreateUser = async (req: Request, res: Response) => {
@@ -33,7 +32,7 @@ export const GetAllUsers = (req: Request, res: Response) => {
     .catch((err) => console.log(err));
 };
 
-export const GetMe = (req: CustomRequest, res: Response) => {
-  console.log(req.decoded);
-  return res.send(req.decoded);
+export const GetMe = (req: Request, res: Response) => {
+  console.log(req);
+  return res.send(req);
 };

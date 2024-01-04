@@ -1,11 +1,9 @@
-import { Response } from "express";
+import { Request, Response } from "express";
 import { compare } from "../helpers/encodePassword";
 import { generateJWT } from "../helpers/token";
-import { CustomRequest } from "../middlewares/auth.middleware";
 import User from "../models/user.model";
 
-export const Login = async (req: CustomRequest, res: Response) => {
-  console.log(req.decoded);
+export const Login = async (req: Request, res: Response) => {
   const { password, email } = req.body;
 
   if (!email || !password) {

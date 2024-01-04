@@ -1,14 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import type { t } from "i18next";
 import jwt from "jsonwebtoken";
 import { getSecretWord } from "../helpers/token";
 
-export interface CustomRequest extends Request {
-  decoded?: any; 
-  t: typeof t;
-}
-
-const check_auth = (req: CustomRequest, res: Response, next: NextFunction) => {
+const check_auth = (req: Request, res: Response, next: NextFunction) => {
   let token;
   if (
     req.headers.authorization &&
@@ -17,7 +11,7 @@ const check_auth = (req: CustomRequest, res: Response, next: NextFunction) => {
     try {
       token = req.headers.authorization.split(" ")[1];
       const decode = jwt.verify(token, getSecretWord());
-      req.decoded = decode;
+      req.push(decode)
 
       return next();
     } catch (error) {
