@@ -27,3 +27,6 @@ Content-Type:  application/json
 
   "email": "buzz@uci.cu"
 }
+### Translation Test
+GET http://localhost:3000/greeting
+Accept-Language: es

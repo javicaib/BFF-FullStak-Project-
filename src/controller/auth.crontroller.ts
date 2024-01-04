@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { compare } from "../helpers/encodePassword";
-import User from "../models/user.model";
 import { generateJWT } from "../helpers/token";
+import User from "../models/user.model";
 export const Login = async (req: Request, res: Response) => {
   const { password, email } = req.body;
 
@@ -11,7 +11,9 @@ export const Login = async (req: Request, res: Response) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    return res.status(404).json({ msg: "Usuario no encontrado" });
+    return res
+      .status(404)
+      .json({ msg: "Correo Electrónico  o Contraseña incorrectas" });
   }
 
   const comparePasswords = await compare(String(password), user.password);
