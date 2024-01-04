@@ -1,13 +1,10 @@
 import { NextFunction, Request, Response } from "express";
-import type { t } from 'i18next';
 import jwt from "jsonwebtoken";
 import { getSecretWord } from "../helpers/token";
 import User from "../models/user.model";
-export interface CustomRequest extends Request {
-  t: typeof t;
-  decode?: any; // Define la propiedad userData opcional
-}
-const check_auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
+
+
+const check_auth = async (req: Request, res: Response, next: NextFunction) => {
   let token;
   if (
     req.headers.authorization &&
@@ -21,8 +18,7 @@ const check_auth = async (req: CustomRequest, res: Response, next: NextFunction)
         if (!user) {
           return res.status(401).json({ msg: req.t("invalid-token") });
         }
-        req.decode = decode
-
+        req.user = decode
         return next()
       }
 
