@@ -1,3 +1,4 @@
 {
-  "email-password-required": "Email and Password are required fields."
+  "email-password-required": "Email and Password are required fields.",
+  "email-password-incorrect": "Email or Password is incorrect"
 }

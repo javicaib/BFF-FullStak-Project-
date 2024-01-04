@@ -1,4 +1,5 @@
 {
   "email-password-required": "Correo electrónico y Contraseña son campos requeridos",
-  "greeting": "hola"
+  "email-password-incorrect": "Correo electrónico o Contraseña son incorrectos"
+  
 }
