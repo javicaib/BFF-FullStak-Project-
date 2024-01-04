@@ -1,4 +1,6 @@
 {
   "email-password-required": "Email and Password are required fields.",
-  "email-password-incorrect": "Email or Password is incorrect"
+  "email-password-incorrect": "Email or Password is incorrect.",
+  "invalid-token": "The token is invalid or has expired.",
+  "no-auth-token": "Authorization token not provided."
 }
